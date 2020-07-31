@@ -279,3 +279,13 @@ Assert::equal(
 	new DateTimeImmutable('2016-06-03T00:00:00'),
 	Neon::decode('2016-06-03')
 );
+
+
+$data = [
+	'exception' => [
+		'not_valid_request' => 'Demande non valide. Paramètres erronés.'
+	]
+];
+$filePath = __DIR__ . '/../../temp/test.neon';
+file_put_contents($filePath, Neon::encode($data, Neon::BLOCK));
+Neon::decode(file_get_contents($filePath));
